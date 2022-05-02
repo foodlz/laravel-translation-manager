@@ -1,12 +1,12 @@
 {
-    "name": "vsch/laravel-translation-manager",
+    "name": "foodlz/laravel-translation-manager",
     "description": "Enhanced Laravel Translation Manager",
     "keywords": [
         "laravel",
         "translations",
         "translator"
     ],
-    "homepage": "https://github.com/vsch/laravel-translation-manager",
+    "homepage": "https://github.com/foodlz/laravel-translation-manager",
     "license": "MIT",
     "authors": [
         {
