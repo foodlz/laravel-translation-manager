@@ -20,6 +20,13 @@ class CreateTranslationsTable extends Migration
             $table->string('group', 128);
             $table->string('key', 128);
             $table->text('value')->nullable();
+            $table->text('source')->nullable();
+            $table->boolean('is_auto_added')->default(0);
+            $table->unique(['locale', 'group', 'key'], 'ixk_ltm_translations_locale_group_key');
+            $table->text('saved_value')->nullable();
+            $table->tinyInteger('is_deleted')->default(0);
+            $table->tinyInteger('was_used')->default(0);
+            $table->index(['group'], 'ix_ltm_translations_group');
             $table->timestamps();
         });
     }
