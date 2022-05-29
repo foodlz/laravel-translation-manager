@@ -21,8 +21,7 @@
         "laravelcollective/html": "^6.0|^7.0|^8.0|^9.0",
         "illuminate/translation": "^6.0|^7.0|^8.0|^9.0",
         "doctrine/dbal": "^2.10",
-        "symfony/finder": "^6.0",
-        "vsch/laravel-translation-manager": "dev-master"
+        "symfony/finder": "^6.0"
     },
     "require-dev": {
         "laravel/framework": "^9.0",
