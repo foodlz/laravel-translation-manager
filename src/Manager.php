@@ -4,6 +4,7 @@ namespace Vsch\TranslationManager;
 
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Events\Dispatcher;
@@ -1297,8 +1298,8 @@ class Manager
                     foreach ($matches[3] as $index => $key) {
                         $quote = $matches[2][$index][0];
                         $keyValue = $key[0];
-                        if ($quote == '\'' && !str_contains($keyValue, ["\"", "'", "->",]) ||
-                            $quote == '"' && !str_contains($keyValue, ["$", "\"", "'", "->",])
+                        if ($quote == '\'' && !Str::contains($keyValue, ["\"", "'", "->",]) ||
+                            $quote == '"' && !Str::contains($keyValue, ["$", "\"", "'", "->",])
                         ) {
                             if ($fileLines == null) {
                                 $fileLines = self::computeFileLines($fileContents);
