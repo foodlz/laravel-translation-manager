@@ -5,6 +5,13 @@
 var CLIP_TEXT;
 var YANDEX_TRANSLATOR_KEY;
 var URL_YANDEX_TRANSLATOR_KEY;
+
+var URL_AWS_TRANSLATOR_CONFIG;
+var AWS_ACCESS_KEY;
+var AWS_SECRET_ACCESS_KEY;
+var URL_AWS_ENDPOINT;
+var AWS_REGION;
+
 var PRIMARY_LOCALE;
 var CURRENT_LOCALE;
 var TRANSLATING_LOCALE;
@@ -68,6 +75,30 @@ String.prototype.toLocaleProperCaseOrLowerCase = function () {
     "use strict";
     return this.substr(0, 1) + this.substr(1).toLocaleLowerCase();
 };
+
+function translateAWS(fromLoc, fromText, toLoc, onTranslate) {
+
+        AWS.config.region = AWS_REGION;
+        var ep = new AWS.Endpoint(URL_AWS_ENDPOINT);
+        AWS.config.credentials = new AWS.Credentials(AWS_ACCESS_KEY, AWS_SECRET_ACCESS_KEY);
+        var translate = new AWS.Translate()
+        translate.endpoint = ep;
+        var params = {
+        Text: fromText,
+        SourceLanguageCode: fromLoc,
+        TargetLanguageCode: toLoc
+        };
+        translate.translateText(params, function (err, data) {
+
+            if (!err) {
+                onTranslate(data.TranslatedText);
+
+            } else {
+                window.console.log("AWS API: " + err.message + "\n");
+            }
+        });
+
+}
 
 function translateYandex(fromLoc, fromText, toLoc, onTranslate) {
     var ERR_OK = 200,
@@ -136,7 +167,7 @@ function extractPluralForm(pluralForms, index) {
     return '';
 }
 
-xtranslateService = translateYandex;
+xtranslateService = translateAWS;
 xtranslateText = function (translator, srcLoc, srcText, dstLoc, processText) {
     var pos, single, plural, havePlural, src = srcText;
     var hadSingleCount = false;
@@ -237,6 +268,23 @@ $(document).ready(function () {
             success: function (json) {
                 if (json.status === 'ok') {
                     YANDEX_TRANSLATOR_KEY = json.yandex_key;
+                }
+            },
+            encode: true
+        });
+    }
+
+    if (URL_AWS_TRANSLATOR_CONFIG) {
+        $.ajax({
+            type: 'POST',
+            url: URL_AWS_TRANSLATOR_CONFIG,
+            data: {},
+            success: function (json) {
+                if (json.status === 'ok') {
+                    AWS_ACCESS_KEY = json.aws_access_key;
+                    AWS_SECRET_ACCESS_KEY = json.aws_secret_access_key;
+                    URL_AWS_ENDPOINT = json.aws_endpoint;
+                    AWS_REGION = json.aws_region;
                 }
             },
             encode: true
