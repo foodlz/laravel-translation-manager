@@ -5,6 +5,7 @@
 var CLIP_TEXT; // we store translation copy/paste here
 var YANDEX_TRANSLATOR_KEY;
 var URL_YANDEX_TRANSLATOR_KEY;
+var URL_AWS_TRANSLATOR_CONFIG;
 var PRIMARY_LOCALE;
 var CURRENT_LOCALE;
 var CURRENT_GROUP;
