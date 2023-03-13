@@ -2,8 +2,9 @@
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Support\DeferrableProvider;
 
-class ManagerServiceProvider extends ServiceProvider
+class ManagerServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     const PACKAGE = 'laravel-translation-manager';
 
