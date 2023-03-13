@@ -720,6 +720,32 @@ class Controller extends BaseController
         return $this->respondNotAdmin(false);
     }
     
+    /**
+     * @param $connection
+     * @param $callback callable
+     */
+    public function useConnection($connection, $callback = null)
+    {
+        $normalize = false;
+        $resolvedConnection = $this->manager->getResolvedConnectionName($connection);
+        if ($resolvedConnection != $this->getConnectionName()) {
+            // changed
+            $this->manager->setConnectionName($connection);
+            $this->initTranslationLocales();
+            $normalize = true;
+        }
+
+        /** @var callable $callback */
+        if ($callback) {
+            $callback();
+            $normalize = true;
+        }
+
+        if ($normalize) {
+            $this->normalizeTranslationLocales();
+        }
+    }
+    
     public function postCopyKeys($group)
     {
         return $this->keyOp($group, 'copy');
