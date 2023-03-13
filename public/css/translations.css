@@ -294,29 +294,29 @@ input.bg-highlight {
 .has-highlight.checkbox label,
 .has-highlight.radio-inline label,
 .has-highlight.checkbox-inline label {
-    color: #337ab7;
+    color: #cc3333;
 }
 
 .has-highlight .form-control {
-    border-color: #337ab7;
+    border-color: #cc3333;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 
 .has-highlight .form-control:focus {
     border-color: #286090;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #337ab7;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #337ab7;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #cc3333;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #cc3333;
 }
 
 .has-highlight .input-group-addon {
-    color: #337ab7;
+    color: #cc3333;
     background-color: #d9edf7;
-    border-color: #337ab7;
+    border-color: #cc3333;
 }
 
 .has-highlight .form-control-feedback {
-    color: #337ab7;
+    color: #cc3333;
 }
 
 .translation-filter.has-feedback label,
