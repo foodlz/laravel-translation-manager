@@ -707,6 +707,19 @@ class Controller extends BaseController
         return [$prefix . $tgroup, $tkey];
     }
 
+    public function postFind()
+    {
+        if (Gate::allows(Manager::ABILITY_ADMIN_TRANSLATIONS)) {
+            $connection = Request::get('connectionName');
+            $this->useConnection($connection);
+
+            $numFound = $this->manager->findTranslations();
+
+            return Response::json(array('status' => 'ok', 'counter' => (int)$numFound));
+        }
+        return $this->respondNotAdmin(false);
+    }
+    
     public function postCopyKeys($group)
     {
         return $this->keyOp($group, 'copy');
