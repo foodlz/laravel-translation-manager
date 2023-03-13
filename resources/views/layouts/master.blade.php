@@ -3,15 +3,16 @@
 <?php use Vsch\TranslationManager\ManagerServiceProvider; $public_prefix = ManagerServiceProvider::PUBLIC_PREFIX; ?>
 <head>
     <meta charset="utf-8">
+    <title>Foodlz Translation Manager</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0, shrink-to-fit=no">
     <meta name="author" content="Vladimir Schneider">
-    <link rel="icon" href="{{asset('/images/favicon.png')}}">
+
     <meta name="description" content="<?=noEditTrans('laravel-translation-manager::messages.translation-manager')?>">
     <meta name="csrf-token" content="<?= csrf_token() ?>"/>
     {{--<!-- Bootstrap core CSS -->--}}
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="<?= $public_prefix ?>laravel-translation-manager/css/bootstrap-theme.css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
     <link href="<?= $public_prefix ?>laravel-translation-manager/css/translations.css" rel="stylesheet">
     @if(isInPlaceEditing(2))
@@ -44,7 +45,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 <script src="<?= $public_prefix ?>laravel-translation-manager/js/rails.min.js"></script>
 <script src="<?= $public_prefix ?>laravel-translation-manager/js/inflection.js"></script>
-<script src="<?= $public_prefix ?>laravel-translation-manager/js/translations.js"></script>
+<script src="<?= $public_prefix ?>laravel-translation-manager/js/aws-sdk-2.895.0.js"></script>
+<script src="<?= $public_prefix ?>laravel-translation-manager/js/translations.js?v=8"></script>
 @yield('body-bottom')
 </body>
 </html>
