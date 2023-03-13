@@ -27,19 +27,19 @@ return array(
      */
     'locales' => [
         'en',
+        'ar',
+        'uk',
+        'es',
+        'fr',
+        'tr',
+        'it',
+        'de',
+        'pl',
+        'ru',
+        'pt',
+        'zh',
     ],
-    /**
-     * Disable React-UI link in WebUI and route to UI
-     *
-     * @type boolean
-     */
-    'disable-react-ui' => false,
-    /**
-     * Disable React-UI link only
-     *
-     * @type boolean
-     */
-    'disable-react-ui-link' => false,
+
     /**
      * Set to true to have newly created JSON group entries get primary locale translation string as their key
      * false for having new keys default on export to ltm key. true by default
@@ -154,7 +154,7 @@ return array(
      *
      * @type boolean
      */
-    'mismatch_enabled' => false,
+    'mismatch_enabled' => true,
     /**
      * Exclude specific groups from Laravel Translation Manager.
      * This is useful if, for example, you want to avoid editing the official Laravel language files.
@@ -165,6 +165,10 @@ return array(
         //'pagination',
         //'reminders',
         //'validation',
+        'ltm-user-locales',
+        'laravel-translation-manager',
+        'laravel-translation-manager::messages',
+        'backup::notifications',
     ),
     /**
      * Exclude specific groups from Laravel Translation Manager in page edit mode.
@@ -173,9 +177,9 @@ return array(
      * @type array
      */
     'exclude_page_edit_groups' => array(
-        //'page-titles',
-        //'reminders',
-        //'validation',
+        'page-titles',
+        'reminders',
+        'validation',
     ),
     /**
      * determines whether missing keys are logged
@@ -221,7 +225,7 @@ return array(
      *                  to be used by clustered systems where the translation files are determined at deployment and publishing
      *                  on one system does no good to the rest of the cluster.
      */
-    'indatabase_publish' => 0,
+    'indatabase_publish' => 2,
 
     /**
      * @type array      list of alternate database connections and their properties indexed by app()->environment() value,
@@ -272,6 +276,18 @@ return array(
      */
 
     'yandex_translator_key' => '',
+
+
+    /**
+     * AWS
+     * https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Credentials.html
+     *
+     */
+    'aws_access_key' => env('AWS_ACCESS_KEY', ''),
+    'aws_secret_access_key' => env('AWS_SECRET_ACCESS_KEY', ''),
+    'aws_endpoint' => env('AWS_ENDPOINT', 'https://translate.us-east-2.amazonaws.com'),
+    'aws_region' => env('AWS_REGION', 'us-east-2'),
+
     /**
      * used to provide configuration on where the translation files are stored and where to write them out.
      *
@@ -366,7 +382,7 @@ return array(
      * Please read above before changing.
      */
     'language_dirs' => array(
-        'lang' => '/resources/lang/{locale}/{group}',
+        'lang' => '/lang/{locale}/{group}',
         'packages' => '/resources/lang/vendor/{package}/{locale}/{group}',
         'workbench' => [
             'include' => '*/*',
