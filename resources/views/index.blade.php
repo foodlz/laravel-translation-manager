@@ -17,7 +17,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <p>@lang($package . '::messages.export-warning-text') @lang($package.'::messages.powered-by-yandex')</p>
+                        <p>@lang($package . '::messages.export-warning-text')</p>
                         <div class="alert alert-danger alert-dismissible" style="display:none;">
                             <button type="button" class="close" data-hide="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -663,7 +663,7 @@
                             </div>
                         </div>
                         <?php endif ?>
-                        @if($yandex_key)
+                        @if($yandex_key or $aws_access_key)
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingThree">
                                     <?= ifEditTrans($package . '::messages.translation-ops') ?>
@@ -777,7 +777,7 @@
                 @include($package . '::translations-table')
             </div>
         </div>
-    <?php endif; ?>
+        <?php endif; ?>
     <!-- Search Modal -->
         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -857,6 +857,7 @@
 @section('body-bottom')
     <script>
         var URL_YANDEX_TRANSLATOR_KEY = '<?= action($controller . '@postYandexKey') ?>';
+        var URL_AWS_TRANSLATOR_CONFIG = '<?= action($controller . '@postAWSConfig') ?>';
         var PRIMARY_LOCALE = '{{$primaryLocale}}';
         var CURRENT_LOCALE = '{{$currentLocale}}';
         var TRANSLATING_LOCALE = '{{$translatingLocale}}';
