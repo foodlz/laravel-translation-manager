@@ -1327,15 +1327,16 @@ class Manager
                 $relativePath = substr($filePath, $basePathLen);
                 $paths .= $relativePath . ':' . implode(',', $locations) . "\n";
             }
-
-            if (!$translation->exists) {
+            
+            if (isset($translation) && !$translation->exists) {
                 // this one is new
                 $translation->is_auto_added = true;
                 $count++;
             }
-
-            $translation->source = $paths;
-            $translation->save();
+            if(isset($translation)) {
+                $translation->source = $paths;
+                $translation->save();
+            }
         }
 
         // Return the number of found translations
