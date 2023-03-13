@@ -1,5 +1,8 @@
 # Laravel Translation Manager
 
+Quickly adding Support Laravel 10 & AWS translation.
+
+
 [![GitQ](https://gitq.com/badge.svg)](https://gitq.com/vsch/laravel-translation-manager)
 
 This package is used to comfortably manage, view, edit and translate Laravel language files with
