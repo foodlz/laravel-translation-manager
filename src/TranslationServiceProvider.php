@@ -1,6 +1,6 @@
 <?php namespace Vsch\TranslationManager;
 
-use Illuminate\Translation\TranslationServiceProvider as BaseTranslationServiceProvider;
+use App\Providers\TranslationServiceProvider as BaseTranslationServiceProvider;
 
 class TranslationServiceProvider extends BaseTranslationServiceProvider
 {
