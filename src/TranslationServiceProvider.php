@@ -1,6 +1,7 @@
 <?php namespace Vsch\TranslationManager;
 
 use App\Providers\TranslationServiceProvider as BaseTranslationServiceProvider;
+//use Illuminate\Translation\TranslationServiceProvider as BaseTranslationServiceProvider;
 
 class TranslationServiceProvider extends BaseTranslationServiceProvider
 {
@@ -20,7 +21,13 @@ class TranslationServiceProvider extends BaseTranslationServiceProvider
     {
         $this->registerLoader();
         
-        $db_driver = config('database.default');
+        
+
+        $db_driver = config('laravel-translation-manager.default_connection');
+        
+        if(!$db_driver || $db_driver == '') {
+            $db_driver = config('database.default');
+        }
 
         if ($db_driver === 'pgsql') {
             $translatorRepository = 'Vsch\TranslationManager\Repositories\PostgresTranslatorRepository';
