@@ -1,7 +1,7 @@
 # Laravel Translation Manager
 
 Quickly adding Support Laravel 10 & AWS translation.
-
+composer require foodlz/laravel-translation-manager:dev-master
 
 [![GitQ](https://gitq.com/badge.svg)](https://gitq.com/vsch/laravel-translation-manager)
 
