@@ -928,7 +928,7 @@ class Controller extends BaseController
         Route::post('find', '\\Vsch\\TranslationManager\\Controller@postFind');
         Route::post('yandex_key', '\\Vsch\\TranslationManager\\Controller@postYandexKey');
         Route::post('aws_access_key', '\\Vsch\\TranslationManager\\Controller@postAWSConfig');
-        Route::post('azure_access_key', '\\Vsch\\TranslationManager\\Controller@postAZUREConfig');
+        //Route::post('azure_access_key', '\\Vsch\\TranslationManager\\Controller@postAZUREConfig');
         Route::post('delete_suffixed_keys/{group}', '\\Vsch\\TranslationManager\\Controller@postDeleteSuffixedKeys');
         Route::post('add/{group}', '\\Vsch\\TranslationManager\\Controller@postAddSuffixedKeys');
         Route::post('show_source/{group}/{key}', '\\Vsch\\TranslationManager\\Controller@postShowSource');
