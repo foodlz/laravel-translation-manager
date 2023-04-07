@@ -367,6 +367,9 @@ class Controller extends BaseController
             ->with('aws_secret_access_key', !!$this->manager->config('aws_secret_access_key'))
             ->with('aws_endpoint', !!$this->manager->config('aws_endpoint'))
             ->with('aws_region', !!$this->manager->config('aws_region'))
+            ->with('azure_access_key', !!$this->manager->config('azure_secret_access_key'))
+            ->with('azure_endpoint', !!$this->manager->config('azure_endpoint'))
+            ->with('azure_region', !!$this->manager->config('azure_region'))
             ->with('locales', $locales)
             ->with('primaryLocale', $primaryLocale)
             ->with('currentLocale', $currentLocale)
@@ -1055,6 +1058,16 @@ class Controller extends BaseController
         ));
     }
 
+    public function postAZUREConfig()
+    {
+        return Response::json(array(
+            'status' => 'ok',
+            'azure_access_key' => $this->manager->config('azure_access_key', null),
+            'azure_endpoint' => $this->manager->config('azure_endpoint', null),
+            'azure_region' => $this->manager->config('azure_region', null),
+        ));
+    }
+    
     public function postUserLocales()
     {
         $user_id = Request::get("pk");
