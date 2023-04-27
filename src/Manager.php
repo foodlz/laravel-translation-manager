@@ -1604,7 +1604,7 @@ class Manager
     public
     function zipTranslations($groups)
     {
-        $zip_name = @tempnam('Translations_' . time(), 'zip'); // Zip name
+        $zip_name = @tempnam('Translations_' . time(), 'gz'); // Zip name
         $this->zipExporting = new ZipArchive();
         $this->zipExporting->open($zip_name, ZipArchive::OVERWRITE);
 
