@@ -869,9 +869,9 @@ class Controller extends BaseController
             $zip_name = "Translations_"; // Zip name
         }
 
-        header('Content-Type: application/zip');
+        header('Content-Type: application/gzip');
         header('Content-Length: ' . filesize($file));
-        header('Content-Disposition: attachment; filename="' . $zip_name . date('Ymd-His') . '.zip"');
+        header('Content-Disposition: attachment; filename="' . $zip_name . date('Ymd-His') . '.gz"');
         header('Content-Transfer-Encoding: binary');
 
         ob_clean();
