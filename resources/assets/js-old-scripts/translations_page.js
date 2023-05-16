@@ -302,8 +302,9 @@ function unhookTranslationPage() {
             //e.preventDefault();
             updateTranslationList = function (table) {
                 table.find('tr').addClass('hidden');
-                table.find('tr.deleted-translation').removeClass('hidden');
-                table.find('tr.has-changed-translation').removeClass('hidden');
+                //table.find('tr.deleted-translation').removeClass('hidden');
+                //table.find('tr.has-changed-translation').removeClass('hidden');
+                table.find('tr > td.has-unpublished-translation').parent('tr').removeClass('hidden');
             };
             updateMatching(this);
         });
